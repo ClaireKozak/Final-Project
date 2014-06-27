@@ -10,3 +10,5 @@ gem "nokogiri"
 gem "pry"
 
 gem "shotgun"
+
+gem "mailgun"
