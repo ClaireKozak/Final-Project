@@ -1,6 +1,6 @@
 require 'nokogiri'
 require 'open-uri'
-require 'pry'
+
 
 class MovieScraping
 	attr_accessor :movie_hash

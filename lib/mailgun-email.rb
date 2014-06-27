@@ -17,8 +17,9 @@ class Email
 		end
 	end
 
-	def email_send
-		@mailgun = Mailgun(:api_key => api)
+	def email_send(body)
+
+		@mailgun = Mailgun()
 
 		parameters = {
 		  :to => "crk.pluto@gmail.com",

@@ -1,11 +1,15 @@
 require 'nokogiri'
 require 'mailgun'
 require 'open-uri'
-require './mailgun-email'
-require './kickstarter_scraper'
+require './lib/mailgun-email'
+require './lib/kickstarter_scraper'
 
-task :moviescraping
-	scrape = MovieScraping.new
-	movies = scrape.scrape_data
+task :moviescraping do
+	movies = MovieScraping.new
+	movies.scrape_data
+	body = movies.make_message
 	message = Email.new('key-1b0tr3-celzkwbwz5y0b7hnu90ngug-9', 'sandbox9679075790ab4fd39af23f7c7a4372fa.mailgun.org')
-	message.email_send(movies)
+	message.configure_mailgun
+	message.email_send(body)
+
+end
